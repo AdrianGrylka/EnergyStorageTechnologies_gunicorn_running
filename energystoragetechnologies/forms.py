@@ -22,7 +22,6 @@ class MultiCheckboxField(SelectMultipleField):
 class SelectTechnologyForm(FlaskForm):
     SelectTechnologyField = SelectField('Select Technology:', coerce=int)
     submit = SubmitField('apply')
-    applications_Field = SelectField('Application')
     energy_capacity_Field = StringField('Energy Capacity', validators=[floatcheck])
     power_capacity_Field = StringField('Power Capacity', validators=[floatcheck])
     discharge_time_Field = SelectField('Discharge Time', coerce=int)
@@ -36,14 +35,13 @@ class SelectTechnologyForm(FlaskForm):
     cycle_lifetime_Field = StringField('Cycle Lifetime', validators=[integercheck])
     capital_cost_energyspecific_Field = StringField('Capital Cost Energy-Specific', validators=[floatcheck])
     capital_cost_powerspecific_Field = StringField('Capital Cost Power-Specific', validators=[floatcheck])
-    LCOES_Field = StringField('Levelized Cost of Energy Storage', validators=[floatcheck])
+    lcoes_Field = StringField('Levelized Cost of Energy Storage', validators=[floatcheck])
     submitfilter = SubmitField('apply filter')
 
 
 class CompareTechnologiesForm(FlaskForm):
     CompareTechnologiesField = MultiCheckboxField('Select Technologies to compare:', coerce=int, default=[1, 8])
     submit = SubmitField('compare')
-    applications_Field = SelectField('Application')
     energy_capacity_Field = StringField('Energy Capacity', validators=[floatcheck])
     power_capacity_Field = StringField('Power Capacity', validators=[floatcheck])
     discharge_time_Field = SelectField('Discharge Time', coerce=int)
@@ -57,7 +55,7 @@ class CompareTechnologiesForm(FlaskForm):
     cycle_lifetime_Field = StringField('Cycle Lifetime', validators=[integercheck])
     capital_cost_energyspecific_Field = StringField('Energy Specific Capital Cost', validators=[floatcheck])
     capital_cost_powerspecific_Field = StringField('Power Specific Capital Cost', validators=[floatcheck])
-    LCOES_Field = StringField('Levelized Cost of Energy Storage', validators=[floatcheck])
+    lcoes_Field = StringField('Levelized Cost of Energy Storage', validators=[floatcheck])
     submitfilter = SubmitField('apply filter')
 
 

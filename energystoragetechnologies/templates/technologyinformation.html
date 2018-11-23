@@ -1,7 +1,7 @@
 {% import "macros.html" as macro %}
 {% extends "layout.html" %}
 {% block content %}
-<br>
+
 {% if nochoicealert %}
 <div class="alert alert-danger">
      No technology found that meet all demands set in the filter
@@ -51,35 +51,6 @@
 <br>
 
 <div class="container">
-    {% autoescape false %}
-    {{ techdescription }}
-    {% endautoescape %}
-
-    <div id="techdiagram">
-        <img src=" ../static/images/{{ techdiagram }}" height="300">
-        <br>
-        {{ techdiagram_description }}
-        <a href={{ techdiagram_link }} target="_blank"> {{ techdiagram_source }} </a>
-    </div>
-</div>
-
-<br>
-
-<div class="container">
-   <div class="row">
-        <div class="col-2">
-            <strong> applications: </strong>
-        </div>
-        <div class="col-10">
-            {{ applications }}
-        </div>
-    </div>
-</div>
-
-
-<br>
-
-<div class="container">
     <div class="accordion" id="accordionExample">
       <div class="card accordioncard">
         <div class="card-header accordionheader" id="headingOne">
@@ -107,9 +78,9 @@
                   {% for par in techvalues %}
                   <tr>
                       <th scope="row">{{ techvalues[par].name }}</th>
-                        <td><a href={{ techvalues[par].minsource.link }} target="_blank" class="tablelink">
+                        <td><a href={{ techvalues[par].minsource.link }} target="_blank">
                             {{ techvalues[par].min }}</a>
-                            - <a href={{ techvalues[par].maxsource.link }} target="_blank" class="tablelink">
+                            - <a href={{ techvalues[par].maxsource.link }} target="_blank">
                                 {{ techvalues[par].max }} </a>
                         </td>
                       <td>{{ techvalues[par].unit }}</td>
@@ -132,45 +103,7 @@
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
           <div class="card-body">
             <table class="table">
-              <thead class="thead">
-                <tr>
-                  <th scope="col">parameter</th>
-                  <th scope="col">value</th>
-                  <th scope="col">unit</th>
-                </tr>
-              </thead>
-              <tbody>
-              {% for par in economicvalues %}
-              <tr>
-                  <th scope="row">{{ economicvalues[par].name }}</th>
-                    <td><a href={{ economicvalues[par].minsource.link }} target="_blank" class="tablelink">
-                        {{ economicvalues[par].min }}</a>
-                        - <a href={{ economicvalues[par].maxsource.link }} target="_blank" class="tablelink">
-                            {{ economicvalues[par].max }} </a>
-                    </td>
-                  <td>{{ economicvalues[par].unit }}</td>
-              </tr>
-              {% endfor %}
-              </tbody>
-            </table>
-          *: <a href="https://www.researchgate.net/publication/260043756_The_Cost_of_Storage_-_How_to_Calculate_the_
-              Levelized_Cost_of_Stored_Energy_LCOE_and_Applications_to_Renewable_Energy_Generation">
-              Levelized Cost of Energy Storage</a>
-          </div>
-        </div>
-      </div>
-      <div class="card accordioncard">
-        <div class="card-header accordionheader" id="headingThree">
-          <h5 class="mb-0">
-            <button class="btn btn-link collapsed accordion-title" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-              Environmental Parameters
-            </button>
-          </h5>
-        </div>
-        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-          <div class="card-body">
-              <table class="table">
-                  <thead class="thead">
+                  <thead class="thead-light">
                     <tr>
                       <th scope="col">parameter</th>
                       <th scope="col">value</th>
@@ -178,19 +111,33 @@
                     </tr>
                   </thead>
                   <tbody>
-                  {% for par in environmentalvalues %}
+                  {% for par in economicvalues %}
                   <tr>
-                      <th scope="row">{{ environmentalvalues[par].name }}</th>
-                        <td><a href={{ environmentalvalues[par].minsource.link }} target="_blank" class="tablelink">
-                            {{ environmentalvalues[par].min }}</a>
-                            - <a href={{ environmentalvalues[par].maxsource.link }} target="_blank" class="tablelink">
-                                {{ environmentalvalues[par].max }} </a>
+                      <th scope="row">{{ economicvalues[par].name }}</th>
+                        <td><a href={{ economicvalues[par].minsource.link }} target="_blank">
+                            {{ economicvalues[par].min }}</a>
+                            - <a href={{ economicvalues[par].maxsource.link }} target="_blank">
+                                {{ economicvalues[par].max }} </a>
                         </td>
-                      <td>{{ environmentalvalues[par].unit }}</td>
+                      <td>{{ economicvalues[par].unit }}</td>
                   </tr>
                   {% endfor %}
                   </tbody>
                 </table>
+          </div>
+        </div>
+      </div>
+      <div class="card accordioncard">
+        <div class="card-header accordionheader" id="headingThree">
+          <h5 class="mb-0">
+            <button class="btn btn-link collapsed accordion-title" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Collapsible Group Item #3
+            </button>
+          </h5>
+        </div>
+        <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+          <div class="card-body">
+            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
           </div>
         </div>
       </div>

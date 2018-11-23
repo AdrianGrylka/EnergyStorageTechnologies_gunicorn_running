@@ -17,21 +17,6 @@
             <form class="form" method="POST" action="">
                 {{ FilForm.hidden_tag() }}
                 <div class="row">
-                    <div class="col-5 filterselectelements">
-                        <div class="form-group">
-                            {{ FilForm.applications_Field.label(class_="form-control-label filterlabel") }}
-                        </div>
-                    </div>
-                    <div class="col-5 filterselectelements">
-                        <div class="form-group">
-                            {{ FilForm.applications_Field(class_="form-control filterselectfield") }}
-                        </div>
-                    </div>
-                    <div class="col-2 filterunit filterselectelements">
-                        <div>
-
-                        </div>
-                    </div>
                     <div class="col-5">
                         <div class="form-group filterelements">
                             {{ FilForm.energy_capacity_Field.label(class_="form-control-label filterlabel") }}
@@ -328,20 +313,20 @@
                     </div>
                     <div class="col-5">
                         <div class="form-group filterelements">
-                            {{ FilForm.LCOES_Field.label(class_="form-control-label filterlabel") }}
+                            {{ FilForm.lcoes_Field.label(class_="form-control-label filterlabel") }}
                         </div>
                     </div>
                     <div class="col-5">
                         <div class="form-group filterelements">
-                        {% if FilForm.LCOES_Field.errors %}
-                        {{ FilForm.LCOES_Field(class_="form-control filterstringfield is-invalid") }}
+                        {% if FilForm.lcoes_Field.errors %}
+                        {{ FilForm.lcoes_Field(class_="form-control filterstringfield is-invalid") }}
                         <div class=invalid-feedback">
-                            {% for error in FilForm.LCOES_Field.errors %}
+                            {% for error in FilForm.lcoes_Field.errors %}
                             <span>{{ error }}</span>
                             {% endfor %}
                         </div>
                         {% else %}
-                        {{ FilForm.LCOES_Field(class_="form-control filterstringfield") }}
+                        {{ FilForm.lcoes_Field(class_="form-control filterstringfield") }}
                         {% endif %}
                         </div>
                     </div>
